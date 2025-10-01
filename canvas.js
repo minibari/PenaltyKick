@@ -1,6 +1,7 @@
 class Field {
     constructor() {
         this.canvas = document.querySelector('canvas');
+        this.score = 0;
     }
 
     createField() {

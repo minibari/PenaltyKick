@@ -29,8 +29,8 @@ class Game {
     this.field.createField(); 
     this.goalkeeper.directGoalkeeper();
     this.goalkeeper.moveGoalkeeper();
-    // this.ball.createBall();
-    // this.ball.shootBall();
+    this.ball.createBall();
+    this.ball.shootBall();
     requestAnimationFrame(() => this.updateGame());
   }
 

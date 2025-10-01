@@ -2,7 +2,7 @@ class Ball {
   constructor() {
     this.x = 400;    //x and y define the middle of the ball
     this.y = 265;
-    this.radius = 8;   // radius="poloměr"
+    this.radius = 8;   
     this.startAngle = 0;
     this.endAngle = Math.PI * 2;
     this.colour = 'white';
@@ -47,7 +47,7 @@ class Ball {
 
 
   }
-  //how to detect collision with goalkeeper or scoring goal?
+  //how to detect collision with goalkeeper or scoring goal(or missing post entirely)? should be in game.js file?
   shootBall() {
 
     this.x += this.velocityX;
