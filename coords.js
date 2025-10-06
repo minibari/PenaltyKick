@@ -10,3 +10,5 @@ function mouseClickPosition(event) {
 
 
 addEventListener("click", mouseClickPosition);
+
+//probably useless
