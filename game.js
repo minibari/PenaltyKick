@@ -8,15 +8,6 @@ class Game {
   }
 
   startGame() {
-    (function () {
-      var requestAnimationFrame =
-        window.requestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.msRequestAnimationFrame;
-      window.requestAnimationFrame = requestAnimationFrame;
-    })();
-
     this.field.createField();
     this.ball.createBall();
     this.goalkeeper.createGoalkeeper();
