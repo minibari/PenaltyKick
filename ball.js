@@ -65,7 +65,8 @@ class Ball {
 
     this.x += this.velocityX;
     this.y += this.velocityY;
-
+    // console.log(this.x);
+    // console.log(this.y);
     this.createBall();
   }
 

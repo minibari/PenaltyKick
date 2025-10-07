@@ -25,9 +25,9 @@ class Field {
     }
 
     endGameMessage(score) {
-        this.canvasContext.font = "50px Arial";;
-        this.canvasContext.fillStyle = "yellow";
-        this.canvasContext.fillText("Penalty missed, you scored" + score + "goals total", 0, 480);
+        this.canvasContext.font = "35px Arial ";;
+        this.canvasContext.fillStyle = "#a5331cff";
+        this.canvasContext.fillText("Penalty missed, you scored " + score + " goals in total", 80, 480);
     }
 }
 

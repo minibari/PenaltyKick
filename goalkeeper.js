@@ -14,7 +14,7 @@ class Goalkeeper {
   }
 
   directGoalkeeper(score) {
-    console.log(this.x)
+    // console.log(this.x)
     //move right if far left
     if (this.x - this.width <= 275) {
       if (score == 0)
