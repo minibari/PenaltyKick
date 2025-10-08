@@ -8,3 +8,4 @@ The idea is to have a moving goalkeeper with the player aiming with his mouse an
 
 With each goal, the speed of the goalkeeper will increase. The speed of the shot will remain the same.
 
+https://jspenaltykickgame.netlify.app/
