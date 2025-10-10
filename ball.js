@@ -10,7 +10,7 @@ class Ball {
     this.velocityY = 0;
     this.targetX = null; // ball direction
     this.targetY = null;
-    this.speed = 1.5;
+    this.speed = 4;
     //encountered a problem when if clicked on canvas again, the ball would change direction.
     //needed to add condition to not be able to change direction if the ball is already moving
     this.isMoving = false;
@@ -81,7 +81,7 @@ class Ball {
     this.velocityX = 0;
     this.velocityY = 0;
     this.targetX = null;
-    this.speed = 1.5;
+    this.speed = 4;
     this.isMoving = false;
   }
 

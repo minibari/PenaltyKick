@@ -5,7 +5,7 @@ class Goalkeeper {
     this.colour = 'black';
     this.x = 390;
     this.y = 100;
-    this.velocityX = 1; //movement on X-axis
+    this.velocityX = 0.5; //movement on X-axis
   }
   createGoalkeeper() {
     let context = document.querySelector('canvas').getContext('2d');
@@ -15,26 +15,25 @@ class Goalkeeper {
 
   directGoalkeeper(score) {
     // console.log(this.x)
+    
+    if (score == 0)
+        score = 0.5;
+      if (score > 10)
+        score = 10;
+
     //move right if far left
     if (this.x - this.width <= 275) {
-      if (score == 0)
-        score = 1;
-      this.velocityX = score;
-
+      this.velocityX = score / 2;
     }
     //move left if far right
     if (this.x + this.width >= 500) {
-      if (score == 0)
-        score = 1;
-      this.velocityX = -score;
-
+      this.velocityX = -score / 2;
     }
 
   }
 
   moveGoalkeeper() {
     this.x += this.velocityX;
-
     this.createGoalkeeper();
   }
 

@@ -24,7 +24,7 @@ class Field {
         this.canvasContext.fillText("Goals scored: " + score, 0, 480);
     }
 
-    endGameMessage(score) {
+    endGameMessage() {
         this.canvasContext.font = "50px Arial ";;
         this.canvasContext.fillStyle = "#a5331cff";
         this.canvasContext.fillText("Game Over!", 200, 300);

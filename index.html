@@ -5,17 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penalty Kick</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <canvas id="field" style="border: 1px solid black"></canvas>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <canvas id="field" style="border: 1px solid black"></canvas>
 
-    <div id="shootDirection">
-        <p>You kicked the ball in this direction(page relative):</p>
-        <p id="x">This row will show where you clicked on X axis</p>
-        <p id="y">This row will show where you clicked on Y axis</p>
+                <div id="shootDirection">
+                    <p><button id="restart" class="btn-primary primary rounded hover-highlight">Restart</button></p>
+                    <p>You kicked the ball in this direction(page relative):</p>
+                    <p id="x">This row will show where you clicked on X axis</p>
+                    <p id="y">This row will show where you clicked on Y axis</p>
+                </div>
+            </div>
+        </div>
     </div>
-
 
     <!-- First load the components and then the game -->
     <script src="canvas.js"></script>

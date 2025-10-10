@@ -44,9 +44,9 @@ class Game {
       this.ball.y + this.ball.radius * 2 < this.goal.y + this.goal.height //the ball must be cross the line entirely
     ) {
       this.ball.resetBall();
-      // console.log(this.score);
-      // console.log("Goal scored")
+      console.log("Goal scored")
       this.score++;
+      console.log(this.score);
     }
 
     if (
@@ -56,7 +56,7 @@ class Game {
       this.ball.y < this.goalkeeper.y + this.goalkeeper.height ||
       this.ball.x < 0 || this.ball.x > 800 || this.ball.y < 0 || this.ball.y > 600  //if the ball goes outside the canvas
     ) {
-      // console.log("Penalty missed")
+      console.log("Penalty missed")
       this.endGame();
     }
 
@@ -65,7 +65,7 @@ class Game {
   endGame() {
     this.isRunning = false;
     cancelAnimationFrame(this.animationId);
-    this.field.endGameMessage(this.score);
+    this.field.endGameMessage();
   }
 
 }
@@ -83,8 +83,8 @@ let newGame = new Game(gameBall, gameField, gameGoalkeeper, gameGoal)
 let canvas = document.getElementById("field")
 
 canvas.addEventListener("click", (event) => {
-  let clickX = event.pageX;
-  let clickY = event.pageY;
+  let clickX = event.offsetX; //target node is canvas
+  let clickY = event.offsetY;
 
   gameBall.directBall(clickX, clickY);
 });
