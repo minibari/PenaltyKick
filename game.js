@@ -20,8 +20,8 @@ class Game {
 
   updateGame() {
     if (!this.isRunning) return;
-    let context = document.querySelector('canvas').getContext('2d');
-    context.clearRect(0, 0, 800, 600);
+    let canvasContext = document.querySelector('canvas').getContext('2d');
+    canvasContext.clearRect(0, 0, 800, 600);
     this.field.createField();
     this.goalkeeper.directGoalkeeper(this.score);
     this.goalkeeper.moveGoalkeeper();
@@ -68,30 +68,37 @@ class Game {
     this.field.endGameMessage();
   }
 
+  restartGame() {
+  cancelAnimationFrame(this.animationId); //when spamming restart button, the speed of GK and ball went out of hand. Did not understand why and needed to use AI
+  this.isRunning = true;
+  this.score = 0;
+  this.ball.resetBall();
+  this.startGame();
 }
 
-
+}
 
 let gameField = new Field();
 let gameGoalkeeper = new Goalkeeper();
 let gameBall = new Ball();
 let gameGoal = new Goal();
 
+let newGame = new Game(gameBall, gameField, gameGoalkeeper, gameGoal);
 
-let newGame = new Game(gameBall, gameField, gameGoalkeeper, gameGoal)
-
-let canvas = document.getElementById("field")
-
+//shooting ball
+let canvas = document.getElementById("field");
 canvas.addEventListener("click", (event) => {
   let clickX = event.offsetX; //target node is canvas
   let clickY = event.offsetY;
-
   gameBall.directBall(clickX, clickY);
 });
 
-
-
+//restart
+let restartButton = document.getElementById("restart");
+restartButton.addEventListener("click", () => {
+  newGame.restartGame();
+});
 newGame.startGame();
-// newGame.updateGame();
+
 
 

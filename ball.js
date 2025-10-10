@@ -25,20 +25,6 @@ class Ball {
     context.arc(this.x, this.y, this.radius, this.startAngle, this.endAngle); //ball as a circle using arc
     context.closePath();
     context.fill();
-
-
-    // show physical line of the direction the ball is going to shoot
-    // if (this.targetX !== null && this.targetY !== null) {
-    //   context.beginPath();
-    //   context.setLineDash([10, 10]); // dash line
-    //   context.moveTo(this.x, this.y);
-    //   context.lineTo(this.targetX, this.targetY);
-    //   context.strokeStyle = 'yellow';
-    //   context.stroke();
-    //   context.setLineDash([]);
-    //   context.closePath();
-    // }
-
   }
 
   //how to get coordinates for shooting direction???
@@ -48,7 +34,7 @@ class Ball {
 
 
   directBall(targetX, targetY) {
-    if (this.isMoving == true) //if the ball is already moving this function does nothing
+    if (this.isMoving) //if the ball is already moving this function does nothing
       return;
 
     let dx = targetX - this.x;  //distance on X axis

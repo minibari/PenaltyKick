@@ -14,8 +14,7 @@ class Goalkeeper {
   }
 
   directGoalkeeper(score) {
-    // console.log(this.x)
-    
+    console.log(this.velocityX)
     if (score == 0)
         score = 0.5;
       if (score > 10)
