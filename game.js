@@ -5,6 +5,8 @@ class Game {
     this.goal = goal;
     this.goalkeeper = goalkeeper;
     this.score = 0;
+    this.animationId;
+    this.isRunning = true;
   }
 
   startGame() {
@@ -13,9 +15,11 @@ class Game {
     this.goalkeeper.createGoalkeeper();
     this.goal.createGoal();
     this.score = 0;
+    this.updateGame();
   }
 
   updateGame() {
+    if (!this.isRunning) return;
     let context = document.querySelector('canvas').getContext('2d');
     context.clearRect(0, 0, 800, 600);
     this.field.createField();
@@ -24,8 +28,8 @@ class Game {
     this.ball.shootBall();
     this.goal.createGoal();
     this.detectCollision();
-    this.field.updateScore(this.score)
-    requestAnimationFrame(() => this.updateGame());
+    this.field.updateScore(this.score);
+    this.animationId = requestAnimationFrame(this.updateGame.bind(this));
   }
 
   //there will be collisions with ball between goal and goalkeeper 
@@ -41,6 +45,7 @@ class Game {
     ) {
       this.ball.resetBall();
       // console.log(this.score);
+      // console.log("Goal scored")
       this.score++;
     }
 
@@ -51,18 +56,17 @@ class Game {
       this.ball.y < this.goalkeeper.y + this.goalkeeper.height ||
       this.ball.x < 0 || this.ball.x > 800 || this.ball.y < 0 || this.ball.y > 600  //if the ball goes outside the canvas
     ) {
+      // console.log("Penalty missed")
       this.endGame();
     }
 
 
   }
-  endGame(){
-  let context = document.querySelector('canvas').getContext('2d');
-  context.clearRect(0, 0, 800, 600);
-  this.field.createField();
-  this.field.endGameMessage(this.score);
-  cancelAnimationFrame();
-}
+  endGame() {
+    this.isRunning = false;
+    cancelAnimationFrame(this.animationId);
+    this.field.endGameMessage(this.score);
+  }
 
 }
 
@@ -85,5 +89,9 @@ canvas.addEventListener("click", (event) => {
   gameBall.directBall(clickX, clickY);
 });
 
+
+
 newGame.startGame();
-newGame.updateGame();
+// newGame.updateGame();
+
+
