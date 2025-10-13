@@ -23,11 +23,11 @@ class Game {
     let canvasContext = document.querySelector('canvas').getContext('2d');
     canvasContext.clearRect(0, 0, 800, 600);
     this.field.createField();
+    this.detectCollision();
     this.goalkeeper.directGoalkeeper(this.score);
     this.goalkeeper.moveGoalkeeper();
     this.ball.shootBall();
     this.goal.createGoal();
-    this.detectCollision();
     this.field.updateScore(this.score);
     this.animationId = requestAnimationFrame(this.updateGame.bind(this));
   }
@@ -42,7 +42,7 @@ class Game {
       this.ball.x < this.goal.x + this.goal.width &&
       this.ball.y > this.goal.y &&
       this.ball.y + this.ball.radius * 2 < this.goal.y + this.goal.height //the ball must be cross the line entirely
-    ) {
+    ) {    
       this.ball.resetBall();
       console.log("Goal scored")
       this.score++;
@@ -69,7 +69,7 @@ class Game {
   }
 
   restartGame() {
-  cancelAnimationFrame(this.animationId); //when spamming restart button, the speed of GK and ball went out of hand. Did not understand why and needed to use AI
+  cancelAnimationFrame(this.animationId);
   this.isRunning = true;
   this.score = 0;
   this.ball.resetBall();

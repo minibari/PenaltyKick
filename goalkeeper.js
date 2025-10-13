@@ -14,19 +14,21 @@ class Goalkeeper {
   }
 
   directGoalkeeper(score) {
-    console.log(this.velocityX)
+    // console.log(this.velocityX)
     if (score == 0)
-        score = 0.5;
-      if (score > 10)
-        score = 10;
+      score = 0.5;
+    if (score > 10)
+      score = 10;
+
+    this.velocityX = Math.sign(this.velocityX) * (score / 3); //this math method keeps the direction(it just returns +1/-1 or zero) of GK but increases his speed based on goals scored
 
     //move right if far left
     if (this.x - this.width <= 275) {
-      this.velocityX = score / 2;
+      this.velocityX = score / 3;
     }
     //move left if far right
     if (this.x + this.width >= 500) {
-      this.velocityX = -score / 2;
+      this.velocityX = -score / 3;
     }
 
   }
