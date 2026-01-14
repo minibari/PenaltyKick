@@ -7,9 +7,13 @@ class Goal {
         this.y = 35;
     }
 
+
+    
     createGoal() {
         let context = document.querySelector('canvas').getContext('2d');
         context.strokeStyle = 'white';
         context.strokeRect(this.x, this.y, this.width, this.height); 
     }
 }
+
+//test github
