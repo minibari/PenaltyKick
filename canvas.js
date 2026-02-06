@@ -20,7 +20,7 @@ class Field {
 
     updateScore(score) {
         this.canvasContext.font = "50px Arial";;
-        this.canvasContext.fillStyle = "yellow";
+        this.canvasContext.fillStyle = "orange";
         this.canvasContext.fillText("Goals scored: " + score, 0, 480);
     }
 
